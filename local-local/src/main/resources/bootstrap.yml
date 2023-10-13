@@ -1,0 +1,42 @@
+server:
+  port: 8899
+spring:
+  mvc:
+    # 该配置意为访问静态资源必须加上image的前缀，，例如127.0.0.1:8899/image/20318.jpg
+    static-path-pattern: /image/**
+  web:
+    resources:
+      # 该配置意为访问静态资源的地址，可配置多个，
+      # classpath:/image：： src/main/resources下的image文件夹下
+      # file:D:\\wenjian：：http://localhost:8899/image/20318.jpg替换为file:D:\\wenjian/20318.jpg
+      #              即http://localhost:8899/image/替换为file:D:\\wenjian/
+      static-locations: classpath:/image,file:D:\\wenjian
+  application:
+    name: xiaozhuoge
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        auto-refresh: true
+        enable-remote-sync-config: true
+      discovery:
+  datasource:
+    database: mysql
+  mail:
+    host: smtp.163.com
+    username: zwenzo@163.com
+    password: EUWEAUZVLZDEZYHS
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          auth: false
+oss:
+  endpoint: https://oss-cn-hangzhou.aliyuncs.com
+  access-key: LTAI5tKHTLGb23WJXY9zySdz
+  secret-key: Tq7L2QD7GyqDho52ATST9KTqWSueUp
+gitee:
+  client-id: a9e188ff5dfded628996e696ef1c9f02d0cfd73991b3e99aacc5f9a2299cdb10
+  client-secret: a402ce7710ce84decde61e77de5797ff356194620d202e43f6647a6b7876b18b
+  roll-back: http://localhost:8899/user/getFile
